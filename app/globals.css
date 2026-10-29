@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * Forest night: deep green-black, pale sage type, and the sun's own yellow
+ * for daylight. A chart-led page: the year is the hero.
+ */
+@theme inline {
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@theme {
+  --color-pine: #0e1510;
+  --color-moss: #16211a;
+  --color-fern: #27382c;
+  --color-sage: #e7efe4;
+  --color-lichen: #9fb3a2;
+  --color-sun: #f3d36b;
+  --color-sun-deep: #e0a83a;
+  --color-leaf: #7fd1a1;
+  --color-dusk: #8fa7ff;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-pine);
+  background-image: radial-gradient(70% 45% at 50% -10%, rgba(243, 211, 107, 0.08), transparent 70%);
+  color: var(--color-sage);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Base resets belong in @layer base. An unlayered `a { color }` or
+ * `button { font }` outranks every Tailwind utility and silently kills text
+ * colours on links and font sizes on controls.
+ */
+@layer base {
+  a {
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: var(--color-sun);
+    color: var(--color-pine);
+  }
+}
